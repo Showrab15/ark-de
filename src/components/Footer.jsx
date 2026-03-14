@@ -7,7 +7,7 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="text-black border-t border-ark-border py-12">
+    <footer className="text-black border-t mt-6 py-6">
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-6">
         {/* Brand */}
         <span className=" font-heading text-[26px] tracking-[0.2em] uppercase select-none hover:opacity-80 transition-opacity text-xl font-serif font-semibold text-[#831113]">
@@ -40,7 +40,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="mt-2 text-[10px] text-ark-text-muted">
-          © 2025 Arkade. All rights reserved.
+          © 2026 Arkade. All rights reserved.
         </p>
       </div>
     </footer>
