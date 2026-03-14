@@ -10,6 +10,7 @@ import { PRODUCTS } from "@/data/product";
 import ImageGallery from "@/components/ImageGallery";
 import SizeChart from "@/components/SizeChart";
 import Link from "next/link";
+import FabricPost from "@/components/FabricPost";
 
 export default function ProductDetail({ onBack }) {
   const [activeColorIndex, setActiveColorIndex] = useState(0);
@@ -35,6 +36,7 @@ export default function ProductDetail({ onBack }) {
          </Link>
         </Button>
       </div>
+      
 
       {/* Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-[calc(100svh-120px)]">
