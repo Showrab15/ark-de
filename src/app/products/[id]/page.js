@@ -111,8 +111,8 @@ export default function ProductDetail({ onBack }) {
             </p>
 
             {[
-              { label: "Instagram", href: "https://instagram.com" },
-              { label: "Facebook", href: "https://facebook.com" },
+              { label: "Instagram", href: "https://www.instagram.com/weararkade?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+              { label: "Facebook", href: "https://web.facebook.com/weararkade/" },
             ].map(({ label, href }) => (
               <a
                 key={label}
