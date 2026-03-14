@@ -2,7 +2,7 @@ export const PRODUCTS = [
   {
     id: 1,
     category: "shirts",
-    name: "Inked Cloudline ",
+    name: "Inked Cloudline",
     price: "৳1,290",
     desc: "Carefully crafted from premium Pinpoint Oxford Cotton.",
     badge: "Limited",

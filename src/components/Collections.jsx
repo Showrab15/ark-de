@@ -19,14 +19,10 @@ export default function CollectionsSection() {
     <section className="px-8 pb-10">
       {/* Section header */}
       <div className="text-center  pt-16 md:pt-24 pb-10">
-        <p className="text-black font-mono tracking-widest text-[12px] uppercase  mb-1">
-          Exclusive Edition
+        <p className="text-black font-mono tracking-[0.45em] text-[20px] md:text-[26px] uppercase  mb-1">
+          Signature Selection
         </p>
-        <h2 className="text-black text-[28px] lg:text-[36px] font-bold tracking-[0.1em]"
-
-        >
-          Crafted for the Discerning
-        </h2>
+      
       </div>
 
       {/* Filter bar */}
