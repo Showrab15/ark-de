@@ -17,7 +17,7 @@ export const PRODUCTS = [
   {
     id: 2,
     category: "shirts",
-    name: "Name Moonlight Noir",
+    name: "Moonlight Noir",
     price: "৳1090",
     desc: "Cut from deep black viscose fabric detailed with fine metallic lurex stripes.",
     badge: "New",
