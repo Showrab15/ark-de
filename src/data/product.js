@@ -62,13 +62,12 @@ export const PRODUCTS = [
   {
     id: 4,
     category: "pants",
-    name: "Slate Tapered Form",
+    name: "Modern Bootcut Slacks",
     price: "৳1,950",
     desc: "Minimal tapered silhouette designed for balance between relaxed comfort and elevated presence.",
     badge: "stock-out",
     imgs: [
-      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800&q=80",
-      "https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=800&q=80",
+      "https://i.ibb.co.com/PsTTv7cs/pant.png",
     ],
   },
 
@@ -94,7 +93,7 @@ export const PRODUCTS = [
     desc: "Sleek blend of nature-inspired design and modern elegance.",
     badge: "stock-out",
     imgs: [
-      "https://i.ibb.co.com/Z91XZzr/Gemini-Generated-Image-pp44nwpp44nwpp44-1.png",
+      "https://i.ibb.co.com/vxfGtfJ0/Polished-bamboo-style-silver-cuff-bracelet.png",
     ],
   },
    {
@@ -105,7 +104,7 @@ export const PRODUCTS = [
     desc: "Elevate your style with this sleek and modern open cuff bracelet. ",
     badge: "stock-out",
     imgs: [
-      "https://i.ibb.co.com/fGvgjZ4q/unnamed.jpg",
+      "https://i.ibb.co.com/bgrY4Y0G/acec2766-3183-4915-b2b6-b5739fed5314.png",
     ],
   },
 ];
