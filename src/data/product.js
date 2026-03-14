@@ -18,7 +18,7 @@ export const PRODUCTS = [
     id: 2,
     category: "shirts",
     name: "Moonlight Noir",
-    price: "৳1090",
+    price: "৳1,090",
     desc: "Cut from deep black viscose fabric detailed with fine metallic lurex stripes.",
     badge: "New",
     imgs: [
@@ -33,7 +33,7 @@ export const PRODUCTS = [
     id: 3,
     category: "shirts",
     name: "Crimson Drift",
-    price: "৳1090",
+    price: "৳1,090",
     desc: "Relaxed linen in deep burgundy red. Washed for softness, cut to drape effortlessly from shoulder to hem. A statement made without effort.",
     badge: "New",
     imgs: [
