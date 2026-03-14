@@ -9,7 +9,7 @@ export default function SizeChart() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-t border-gray-300 dark:border-gray-700 mt-6">
+    <div className="text-black border-t border-gray-300 dark:border-gray-700 mt-6">
       {/* Toggle header */}
       <button
         onClick={() => setOpen((o) => !o)}
@@ -42,7 +42,7 @@ export default function SizeChart() {
                 {SIZE_CHART_HEADERS.map((h, i) => (
                   <th
                     key={h}
-                    className="text-left py-2 px-3 font-semibold bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700"
+                    className="text-white text-left py-2 px-3 font-semibold bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700"
                   >
                     {h}
                   </th>

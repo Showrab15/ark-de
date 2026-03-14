@@ -1,54 +1,45 @@
 import { Instagram, Facebook } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
 
 const SOCIALS = [
   { label: "Instagram", icon: Instagram, href: "https://instagram.com" },
-  { label: "Facebook", icon: Facebook, href: "https://facebook.com" },
+  { label: "Facebook", icon: Facebook, href: "https://web.facebook.com/weararkade/" },
 ];
 
-/**
- * Site footer with social links and launch notice.
- */
 export default function Footer() {
   return (
-    <footer className="bg-ark-surface border-t border-ark-border">
-      <div className="max-w-6xl mx-auto px-4 md:px-12 py-16 md:py-24 flex flex-col items-center text-center gap-8">
+    <footer className="text-black border-t border-ark-border py-12">
+      <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-6">
         {/* Brand */}
-        <div>
-          <p className="font-display text-3xl font-light tracking-widest3 text-ark-text mb-2">
-            ARKADE
-          </p>
-          <p className="text-[10px] tracking-widest3 uppercase text-crimson">
-            Refined Menswear
-          </p>
-        </div>
-
-        <Separator className="w-px h-8 mx-auto" />
+        <span className=" font-heading text-[26px] tracking-[0.2em] uppercase select-none hover:opacity-80 transition-opacity text-xl font-serif font-semibold text-[#831113]">
+             ARKADE
+           </span>
+        <p className="text-xs uppercase text-crimson tracking-widest">
+          Refined Menswear
+        </p>
 
         {/* Social links */}
-        <nav className="flex items-center gap-4" aria-label="Social media">
+        <div className="flex gap-4 mt-4">
           {SOCIALS.map(({ label, icon: Icon, href }) => (
             <a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 border border-ark-border text-[10px] tracking-widest2 uppercase text-ark-text-dim hover:border-crimson hover:text-crimson transition-all duration-200"
+              className="flex items-center gap-1 text-xs text-ark-text-dim hover:text-crimson transition"
             >
-              <Icon size={13} />
+              <Icon size={14} />
               {label}
             </a>
           ))}
-        </nav>
-
-        {/* Launch notice */}
-        <div className="px-6 py-3 border border-gold/30 text-[11px] tracking-widest text-gold">
-          Full website launching soon — stay tuned
         </div>
 
-        <Separator className="w-24" />
+        {/* Launch notice */}
+        <p className="mt-4 text-[11px] text-gold/80 tracking-widest">
+          Full website launching soon — stay tuned
+        </p>
 
-        <p className="text-[10px] tracking-widest text-ark-text-muted">
+        {/* Copyright */}
+        <p className="mt-2 text-[10px] text-ark-text-muted">
           © 2025 Arkade. All rights reserved.
         </p>
       </div>

@@ -66,30 +66,30 @@ export default function ImageGallery({ images, productName }) {
                 onClick={prev}
                 className="
                   absolute left-4 top-1/2 -translate-y-1/2
-                  w-10 h-10 bg-white/90 border border-zinc-200
+                  w-10 h-10 bg-white/10 border border-zinc-200
                   flex items-center justify-center
                   hover:bg-white transition
                 "
               >
-                <ChevronLeft size={18} />
+                <ChevronLeft className="text-black" size={18} />
               </button>
 
               <button
                 onClick={next}
                 className="
                   absolute right-4 top-1/2 -translate-y-1/2
-                  w-10 h-10 bg-white/90 border border-zinc-200
+                  w-10 h-10 bg-white/10 border border-zinc-200
                   flex items-center justify-center
                   hover:bg-white transition
                 "
               >
-                <ChevronRight size={18} />
+                <ChevronRight className="text-black"  size={18} />
               </button>
             </>
           )}
 
           {/* Counter */}
-          <div className="absolute bottom-4 right-4 bg-white/90 px-3 py-1 text-xs tracking-[0.2em]">
+          <div className="text-black absolute bottom-4 right-4 bg-white/90 px-3 py-1 text-xs tracking-[0.2em]">
             {activeIndex + 1} / {images.length}
           </div>
         </div>

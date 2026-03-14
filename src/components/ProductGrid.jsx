@@ -17,7 +17,7 @@ export default function ProductGrid({ products }) {
 
   return (
     <div
-      className="grid grid-cols-4 gap-4 bg-ark-border"
+      className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-4 bg-ark-border"
 
     >
       {products.map((product) => (
