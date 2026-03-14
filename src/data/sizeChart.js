@@ -1,9 +1,9 @@
 /** @type {string[]} */
 export const SIZE_CHART_HEADERS = [
   "Size",
-  "Length (in)",
-  "Chest (in)",
-  "Sleeve (in)",
+  "Length",
+  "Chest",
+  "Sleeve",
 ];
 
 /** @type {string[][]} */

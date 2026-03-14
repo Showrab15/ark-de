@@ -11,11 +11,10 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-6">
         {/* Brand */}
         <span className=" font-heading text-[26px] tracking-[0.2em] uppercase select-none hover:opacity-80 transition-opacity text-xl font-serif font-semibold text-[#831113]">
-             ARKADE
-           </span>
+          ARKADE
+        </span>
         <p className="text-xs uppercase text-crimson tracking-widest">
-          Refined Menswear
-        </p>
+          FOr The Few        </p>
 
         {/* Social links */}
         <div className="flex gap-4 mt-4">
