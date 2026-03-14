@@ -73,7 +73,7 @@ export default function ProductDetail({ onBack }) {
           <div className="mt-8 space-y-3 text-sm text-zinc-700">
             <div className="flex items-center gap-2">
               <Truck size={16} />
-              Nationwide delivery available
+              Worldwide delivery available
             </div>
             <div className="flex items-center gap-2">
               <ShieldCheck size={16} />
