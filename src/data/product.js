@@ -89,13 +89,23 @@ export const PRODUCTS = [
   {
     id: 9,
     category: "accessories",
-    name: "Steel Loop Bracelet",
-    price: "৳990",
-    desc: "Minimal bracelet with brushed steel finish — understated detail for daily wear.",
+    name: "Bamboo Twist Bracelet",
+    price: "৳690",
+    desc: "Sleek blend of nature-inspired design and modern elegance.",
     badge: "stock-out",
     imgs: [
-      "https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=800&q=80",
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80",
+      "https://i.ibb.co.com/Z91XZzr/Gemini-Generated-Image-pp44nwpp44nwpp44-1.png",
+    ],
+  },
+   {
+    id: 10,
+    category: "accessories",
+    name: "Twisted Bracelet",
+    price: "৳620",
+    desc: "Elevate your style with this sleek and modern open cuff bracelet. ",
+    badge: "stock-out",
+    imgs: [
+      "https://i.ibb.co.com/fGvgjZ4q/unnamed.jpg",
     ],
   },
 ];

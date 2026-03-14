@@ -5,7 +5,7 @@ import { COLLECTION_FILTERS, PRODUCTS } from "@/data/product";
 
 
 
-export default function CollectionsSection (){
+export default function CollectionsSection() {
 
 
   const [activeFilter, setActiveFilter] = useState("all");
@@ -20,12 +20,12 @@ export default function CollectionsSection (){
       {/* Section header */}
       <div className="text-center  pt-16 md:pt-24 pb-10">
         <p className="text-black font-mono tracking-widest text-[12px] uppercase  mb-1">
-    Exclusive Edition
+          Exclusive Edition
         </p>
         <h2 className="text-black text-[28px] lg:text-[36px] font-bold tracking-[0.1em]"
-        
+
         >
-    Crafted for the Discerning
+          Crafted for the Discerning
         </h2>
       </div>
 
