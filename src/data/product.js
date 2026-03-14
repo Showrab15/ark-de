@@ -24,7 +24,7 @@ export const PRODUCTS = [
     imgs: [
       "https://i.ibb.co.com/Zk5LzZQ/Whats-App-Image-2026-03-14-at-5-01-26-PM.jpg",
       "https://i.ibb.co.com/Qj1YDXXL/Whats-App-Image-2026-03-14-at-5-04-08-PM-1.jpg",
-      "https://i.ibb.co.com/Zk5LzZQ/Whats-App-Image-2026-03-14-at-5-01-26-PM.jpg",
+      "https://i.ibb.co.com/67q4jPJK/Whats-App-Image-2026-03-14-at-6-28-46-PM.jpg",
       "https://i.ibb.co.com/1fWSQh2N/Whats-App-Image-2026-03-14-at-5-04-07-PM.jpg"
     ],
   },
