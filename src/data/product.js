@@ -7,10 +7,10 @@ export const PRODUCTS = [
     desc: "Carefully crafted from premium Pinpoint Oxford Cotton.",
     badge: "Limited",
     imgs: [
-      "https://i.ibb.co.com/Qj1Rkws5/Whats-App-Image-2026-03-10-at-1-38-30-AM.jpg",
-      "https://i.ibb.co.com/4RYXPxRq/Whats-App-Image-2026-03-10-at-2-16-39-AM.jpg",
-      "https://i.ibb.co.com/kVNQ68x8/Whats-App-Image-2026-03-10-at-2-24-53-AM.jpg",
-      "https://i.ibb.co.com/S43BR9C7/shirt-1.jpg"
+      "/shirt-2.jpeg",
+      "/shirt-3.jpeg",
+      "/shirt-4.jpeg",
+      "/shirt-1.jpg"
     ],
   },
 
@@ -22,10 +22,10 @@ export const PRODUCTS = [
     desc: "Cut from deep black viscose fabric detailed with fine metallic lurex stripes.",
     badge: "New",
     imgs: [
-      "https://i.ibb.co.com/Zk5LzZQ/Whats-App-Image-2026-03-14-at-5-01-26-PM.jpg",
-      "https://i.ibb.co.com/Qj1YDXXL/Whats-App-Image-2026-03-14-at-5-04-08-PM-1.jpg",
-      "https://i.ibb.co.com/67q4jPJK/Whats-App-Image-2026-03-14-at-6-28-46-PM.jpg",
-      "https://i.ibb.co.com/1fWSQh2N/Whats-App-Image-2026-03-14-at-5-04-07-PM.jpg"
+      "/moonlight-noir1.jpeg",
+      "/moonlight-noir2.jpeg",
+      "/moonlight-noir3.jpeg",
+      "/moonlight-noir4.jpeg"
     ],
   },
 
@@ -37,10 +37,10 @@ export const PRODUCTS = [
     desc: "Relaxed linen in deep burgundy red. Washed for softness, cut to drape effortlessly from shoulder to hem. A statement made without effort.",
     badge: "New",
     imgs: [
-      "https://i.ibb.co.com/8gZqJgrQ/IMG-9112.jpg",
-      "https://i.ibb.co.com/TDJJy2vY/IMG-9085.jpg",
-      "https://i.ibb.co.com/Wv6ZmJ39/IMG-9109.jpg",
-      "https://i.ibb.co.com/SXvhpgdS/IMG-9168.jpg",
+      "/IMG_9112.jpeg",
+      "/IMG_9085.jpeg",
+      "/IMG_9109.jpeg",
+      "/IMG_9168.jpeg",
     ],
   },
 
@@ -67,7 +67,7 @@ export const PRODUCTS = [
     desc: "Minimal tapered silhouette designed for balance between relaxed comfort and elevated presence.",
     badge: "stock-out",
     imgs: [
-      "https://i.ibb.co.com/PsTTv7cs/pant.png",
+      "/pant.png",
     ],
   },
 
@@ -92,7 +92,7 @@ export const PRODUCTS = [
     desc: "Sleek blend of nature-inspired design and modern elegance.",
     badge: "stock-out",
     imgs: [
-      "https://i.ibb.co.com/vxfGtfJ0/Polished-bamboo-style-silver-cuff-bracelet.png",
+      "/bamboo.png",
     ],
   },
   {
@@ -103,7 +103,7 @@ export const PRODUCTS = [
     desc: "Elevate your style with this sleek and modern open cuff bracelet. ",
     badge: "stock-out",
     imgs: [
-      "https://i.ibb.co.com/bgrY4Y0G/acec2766-3183-4915-b2b6-b5739fed5314.png",
+      "/bracelet.png",
     ],
   },
 ];
