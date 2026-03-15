@@ -53,11 +53,11 @@ export const PRODUCTS = [
     badge: "stock-out",
     colors: ["#5c1a1a", "#1a1a1a"],
     imgs: [
-      "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=800&q=80",
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
+      "/Ember.png",
+      "/ember-2.png",
     ],
   },
- 
+
 
   {
     id: 4,
@@ -80,8 +80,7 @@ export const PRODUCTS = [
     desc: "Compact black wallet built for essential carry with refined stitching and durable leather finish.",
     badge: "stock-out",
     imgs: [
-      "https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&q=80",
-      "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=800&q=80",
+      "/card.png",
     ],
   },
 
@@ -96,7 +95,7 @@ export const PRODUCTS = [
       "https://i.ibb.co.com/vxfGtfJ0/Polished-bamboo-style-silver-cuff-bracelet.png",
     ],
   },
-   {
+  {
     id: 10,
     category: "accessories",
     name: "Twisted Bracelet",

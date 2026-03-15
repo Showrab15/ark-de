@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import {  useState } from "react";
 import ProductGrid from "./ProductGrid";
 import FilterBar from "./FilterBar";
 import { COLLECTION_FILTERS, PRODUCTS } from "@/data/product";

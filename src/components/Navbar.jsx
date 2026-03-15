@@ -3,16 +3,11 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "HOME", href: "/" },
-  // { label: "Rooms", href: "/rooms" },
-  // { label: "Services", href: "/services" },
   { label: "About Us", href: "/about" },
-  // { label: "Dining", href: "/dining" },
 ];
 
 export default function Navbar({onNotifyClick}) {

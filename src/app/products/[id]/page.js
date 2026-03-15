@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { ArrowLeft, MessageCircle, ShieldCheck, Truck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,10 +9,8 @@ import { PRODUCTS } from "@/data/product";
 import ImageGallery from "@/components/ImageGallery";
 import SizeChart from "@/components/SizeChart";
 import Link from "next/link";
-import FabricPost from "@/components/FabricPost";
 
 export default function ProductDetail({ onBack }) {
-  const [activeColorIndex, setActiveColorIndex] = useState(0);
   const { id } = useParams();
   const product = PRODUCTS.find((p) => p.id == id);
 

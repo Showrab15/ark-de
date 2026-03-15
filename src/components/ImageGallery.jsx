@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function ImageGallery({ images, productName }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -30,7 +31,8 @@ export default function ImageGallery({ images, productName }) {
                   : "border-zinc-200 hover:border-zinc-400"
               )}
             >
-              <img
+              <Image
+              fill
                 src={img}
                 alt=""
                 className="w-full h-full object-cover"

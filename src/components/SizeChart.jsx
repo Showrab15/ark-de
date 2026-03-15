@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SIZE_CHART_HEADERS, SIZE_CHART_ROWS, FIT_GUIDE } from "@/data/sizeChart";
+import { SIZE_CHART_HEADERS, SIZE_CHART_ROWS } from "@/data/sizeChart";
 
 export default function SizeChart() {
   const [open, setOpen] = useState(false);
