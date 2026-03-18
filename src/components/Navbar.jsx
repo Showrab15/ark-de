@@ -22,7 +22,7 @@ export default function Navbar({onNotifyClick}) {
   }, []);
 
   return (
-    <div
+    <header
       className={` transition-all duration-300 ${
         scrolled ? "shadow-[0_2px_20px_rgba(0,0,0,0.08)]" : ""
       }`}
@@ -109,6 +109,6 @@ export default function Navbar({onNotifyClick}) {
           </Button> */}
         </nav>
       </div>
-    </div>
+    </header>
   );
 }
