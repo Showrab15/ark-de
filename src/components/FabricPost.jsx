@@ -32,7 +32,7 @@ export default function FabricStories() {
   const [activeImage, setActiveImage] = useState(null);
 
   return (
-    <section className="px-4 md:px-12 py-24 bg-white">
+    <section className="px-4 md:px-12 py-16 ">
       <div className="text-center mb-16">
         <p className="text-[20px] md:text-[26px] tracking-[0.45em] uppercase text-black">
           Material Narrative
