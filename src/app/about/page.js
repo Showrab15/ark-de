@@ -1,6 +1,12 @@
 import Image from "next/image";
 import React from "react";
 
+export const metadata = {
+  title: "About",
+  description:
+    "About Arkade: a premium menswear brand offering modern clothing designed with refined craftsmanship, quality fabrics, and timeless style.",
+};
+
 export default function AboutUsPage() {
   return (
     <main className="min-h-screen bg-white px-6 md:px-24 py-20">
@@ -17,7 +23,7 @@ export default function AboutUsPage() {
           />
         </div>
 
-        
+
 
         <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
           Arkade is a modern menswear brand built on precision, confidence,
@@ -62,7 +68,7 @@ export default function AboutUsPage() {
         </p>
 
         <p className="mt-10 text-sm tracking-[0.35em] uppercase text-zinc-500">
-        For the few
+          For the few
         </p>
       </section>
 

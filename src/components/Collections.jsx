@@ -1,3 +1,5 @@
+"use client"
+
 import {  useState } from "react";
 import ProductGrid from "./ProductGrid";
 import FilterBar from "./FilterBar";
