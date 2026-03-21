@@ -69,15 +69,6 @@ export default function SizeChart() {
           </table>
         </div>
 
-        {/* Fit guide */}
-        {/* <div className="mt-4 flex flex-col gap-2">
-          {FIT_GUIDE.map(({ label, desc }) => (
-            <div key={label}>
-              <p className="text-xs font-semibold uppercase">{label}</p>
-              <p className="text-xs">{desc}</p>
-            </div>
-          ))}
-        </div> */}
       </div>
     </div>
   );
