@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
-
+// hello
 const NAV_LINKS = [
   { label: "HOME", href: "/" },
   { label: "About Us", href: "/about" },
