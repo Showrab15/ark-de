@@ -1,4 +1,4 @@
-import { updateOrderStatus } from '../../../lib/googleSheets.js';
+import { updateOrderStatus } from '@/lib/googleSheets';
 
 // PUT /api/orders/[id] - Update order status
 export async function PUT(request, { params }) {

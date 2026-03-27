@@ -1,4 +1,4 @@
-import { updateUserRole } from '../../../lib/googleSheets.js';
+import { updateUserRole } from '@/lib/googleSheets';
 
 export async function PUT(request, { params }) {
   try {
