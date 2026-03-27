@@ -1,23 +1,9 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-
-const ordersFilePath = path.join(process.cwd(), 'src', 'data', 'orders.json');
-
-// Ensure orders.json exists
-async function ensureOrdersFile() {
-  try {
-    await fs.access(ordersFilePath);
-  } catch {
-    await fs.writeFile(ordersFilePath, JSON.stringify([], null, 2));
-  }
-}
+import { getOrders, addOrder, updateOrderStatus } from '@/lib/googleSheets';
 
 // GET /api/orders - Get all orders
 export async function GET() {
   try {
-    await ensureOrdersFile();
-    const ordersData = await fs.readFile(ordersFilePath, 'utf8');
-    const orders = JSON.parse(ordersData);
+    const orders = await getOrders();
     return Response.json(orders);
   } catch (error) {
     console.error('Error reading orders:', error);
@@ -38,17 +24,8 @@ export async function POST(request) {
       }
     }
 
-    await ensureOrdersFile();
-    const ordersData = await fs.readFile(ordersFilePath, 'utf8');
-    const orders = JSON.parse(ordersData);
-
-    // Add new order
-    orders.push(newOrder);
-
-    // Write back to file
-    await fs.writeFile(ordersFilePath, JSON.stringify(orders, null, 2));
-
-    return Response.json({ success: true, orderId: newOrder.id });
+    const result = await addOrder(newOrder);
+    return Response.json(result);
   } catch (error) {
     console.error('Error saving order:', error);
     return Response.json({ error: 'Failed to save order' }, { status: 500 });
@@ -71,21 +48,8 @@ export async function PUT(request, { params }) {
       return Response.json({ error: 'Valid status required' }, { status: 400 });
     }
 
-    await ensureOrdersFile();
-    const ordersData = await fs.readFile(ordersFilePath, 'utf8');
-    const orders = JSON.parse(ordersData);
-
-    const orderIndex = orders.findIndex(order => order.id === orderId);
-    if (orderIndex === -1) {
-      return Response.json({ error: 'Order not found' }, { status: 404 });
-    }
-
-    orders[orderIndex].status = status;
-
-    // Write back to file
-    await fs.writeFile(ordersFilePath, JSON.stringify(orders, null, 2));
-
-    return Response.json({ success: true });
+    const result = await updateOrderStatus(orderId, status);
+    return Response.json(result);
   } catch (error) {
     console.error('Error updating order:', error);
     return Response.json({ error: 'Failed to update order' }, { status: 500 });
