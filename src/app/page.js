@@ -1,4 +1,5 @@
 
+import BannerSlider from "@/components/Banner";
 import CollectionsSection from "@/components/Collections";
 import FabricStories from "@/components/FabricPost";
 
@@ -11,6 +12,7 @@ export default function App() {
 
   return (
     <>
+    <BannerSlider/>
       <CollectionsSection />
       <FabricStories />
     </>

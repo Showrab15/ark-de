@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 const NAV_LINKS = [
   { label: "HOME", href: "/" },
   { label: "About Us", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar({onNotifyClick}) {
