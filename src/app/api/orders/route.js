@@ -1,9 +1,22 @@
-import { getOrders, addOrder, updateOrderStatus } from '@/lib/googleSheets';
+import { promises as fs } from 'fs';
+import path from 'path';
+
+const ordersFilePath = path.join(process.cwd(), 'src', 'data', 'orders.json');
+
+async function ensureOrdersFile() {
+  try {
+    await fs.access(ordersFilePath);
+  } catch {
+    await fs.writeFile(ordersFilePath, JSON.stringify([], null, 2));
+  }
+}
 
 // GET /api/orders - Get all orders
 export async function GET() {
   try {
-    const orders = await getOrders();
+    await ensureOrdersFile();
+    const ordersData = await fs.readFile(ordersFilePath, 'utf8');
+    const orders = JSON.parse(ordersData);
     return Response.json(orders);
   } catch (error) {
     console.error('Error reading orders:', error);
@@ -14,18 +27,31 @@ export async function GET() {
 // POST /api/orders - Add new order
 export async function POST(request) {
   try {
-    const newOrder = await request.json();
+    const orderData = await request.json();
 
     // Validate required fields
-    const requiredFields = ['id', 'productId', 'productName', 'customerName', 'phone', 'address', 'size', 'quantity', 'deliveryCharge', 'status', 'timestamp'];
+    const requiredFields = ['productId', 'productName', 'customerName', 'phone', 'address', 'size', 'quantity', 'deliveryCharge'];
     for (const field of requiredFields) {
-      if (!newOrder[field]) {
+      if (!orderData[field]) {
         return Response.json({ error: `Missing required field: ${field}` }, { status: 400 });
       }
     }
 
-    const result = await addOrder(newOrder);
-    return Response.json(result);
+    await ensureOrdersFile();
+    const ordersData = await fs.readFile(ordersFilePath, 'utf8');
+    const orders = JSON.parse(ordersData);
+
+    const newOrder = {
+      id: Date.now().toString(),
+      ...orderData,
+      status: 'pending',
+      timestamp: new Date().toISOString(),
+    };
+
+    orders.push(newOrder);
+    await fs.writeFile(ordersFilePath, JSON.stringify(orders, null, 2));
+
+    return Response.json({ success: true, orderId: newOrder.id });
   } catch (error) {
     console.error('Error saving order:', error);
     return Response.json({ error: 'Failed to save order' }, { status: 500 });
@@ -48,8 +74,19 @@ export async function PUT(request, { params }) {
       return Response.json({ error: 'Valid status required' }, { status: 400 });
     }
 
-    const result = await updateOrderStatus(orderId, status);
-    return Response.json(result);
+    await ensureOrdersFile();
+    const ordersData = await fs.readFile(ordersFilePath, 'utf8');
+    const orders = JSON.parse(ordersData);
+
+    const orderIndex = orders.findIndex(order => order.id === orderId);
+    if (orderIndex === -1) {
+      return Response.json({ error: 'Order not found' }, { status: 404 });
+    }
+
+    orders[orderIndex].status = status;
+    await fs.writeFile(ordersFilePath, JSON.stringify(orders, null, 2));
+
+    return Response.json({ success: true });
   } catch (error) {
     console.error('Error updating order:', error);
     return Response.json({ error: 'Failed to update order' }, { status: 500 });
