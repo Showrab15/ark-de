@@ -1,21 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import {
-//   auth,
-//   signInWithEmailAndPassword,
-//   sendEmailVerification,
-// } from "@/lib/firebase";
-// import { authAPI } from "@/lib/api";
+import { useAuth } from "@/contexts/AuthContext";
+import { auth } from "@/lib/firebase";
+import { sendEmailVerification } from "firebase/auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { AlertCircle, Loader2, MailWarning } from "lucide-react";
+import { AlertCircle, Loader2, MailWarning, LogIn } from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();
+  const { user, appUser, loading: authLoading, signInWithGoogle, signInWithEmailPassword } = useAuth();
 
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
@@ -24,10 +22,90 @@ export default function LoginPage() {
   const [resendLoading, setResendLoading] = useState(false);
   const [resendSuccess, setResendSuccess] = useState(false);
 
+  useEffect(() => {
+    if (user && !user.emailVerified) {
+      setUnverified(true);
+      return;
+    }
+
+    if (user && appUser) {
+      if (appUser.role === "admin") {
+        router.replace("/admin");
+      } else {
+        router.replace("/");
+      }
+    }
+  }, [user, appUser, router]);
+
+  const handleGoogleSignIn = async () => {
+    setError("");
+    setLoading(true);
+    try {
+      await signInWithGoogle();
+    } catch (err) {
+      console.error(err);
+      setError("Google sign-in failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     setError("");
     setUnverified(false);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setUnverified(false);
+
+    if (!form.email || !form.password) {
+      setError("Email and password are required.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await signInWithEmailPassword(form.email, form.password);
+      // navigation will be handled in effect when auth state updates
+    } catch (err) {
+      console.error("Login error:", err);
+      if (err.message === "Email not verified") {
+        setUnverified(true);
+      } else {
+        const errorMessages = {
+          "auth/invalid-credential": "Invalid email or password.",
+          "auth/user-not-found": "No account found with this email.",
+          "auth/wrong-password": "Incorrect password.",
+          "auth/invalid-email": "Invalid email address.",
+          "auth/too-many-requests": "Too many failed attempts. Try again later.",
+          "auth/network-request-failed": "Network error. Check your connection.",
+          "auth/user-disabled": "This account has been disabled.",
+        };
+        setError(errorMessages[err.code] || err.message || "Login failed. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResendVerification = async () => {
+    setResendLoading(true);
+    try {
+      if (!auth.currentUser) {
+        setError("Please sign in first to resend verification.");
+        return;
+      }
+      await sendEmailVerification(auth.currentUser);
+      setResendSuccess(true);
+    } catch (err) {
+      console.error(err);
+      setError("Failed to resend verification email.");
+    } finally {
+      setResendLoading(false);
+    }
   };
 
 //   const handleSubmit = async (e) => {
@@ -138,8 +216,20 @@ export default function LoginPage() {
           </div>
         )}
 
+        <div className="space-y-4">
+          <Button
+            onClick={handleGoogleSignIn}
+            disabled={loading || authLoading}
+            className="w-full rounded-none bg-white text-black border border-zinc-300 hover:bg-zinc-100 h-11 font-medium"
+          >
+            <LogIn size={16} className="mr-2" />
+            {loading || authLoading ? "Signing in..." : "Sign in with Google"}
+          </Button>
+          <p className="text-xs text-zinc-500 text-center">Use Google to log in and manage roles in the admin panel.</p>
+        </div>
+
         {/* Form */}
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
           {/* Error */}
           {error && (
             <div className="flex items-start gap-2 text-sm text-red-600 bg-red-50 border border-red-200 px-4 py-3">

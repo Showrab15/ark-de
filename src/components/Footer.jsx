@@ -41,6 +41,14 @@ export default function Footer() {
         <p className="mt-2 text-[10px] text-ark-text-muted">
           © 2026 Arkade. All rights reserved.
         </p>
+
+        {/* Admin link */}
+        <a
+          href="/admin"
+          className="mt-1 text-[8px] text-ark-text-muted hover:text-crimson transition uppercase tracking-widest"
+        >
+          Admin
+        </a>
       </div>
     </footer>
   );

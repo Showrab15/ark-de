@@ -3,12 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import {
-//   auth,
-//   createUserWithEmailAndPassword,
-//   sendEmailVerification,
-// } from "@/lib/firebase";
-// import { authAPI } from "@/lib/api";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -16,6 +11,7 @@ import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 
 export default function RegisterPage() {
   const router = useRouter();
+  const { registerWithEmailPassword } = useAuth();
 
   const [form, setForm] = useState({
     email: "",
@@ -84,6 +80,41 @@ export default function RegisterPage() {
 //     }
 //   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (!form.email || !form.password || !form.confirmPassword) {
+      setError("All fields are required.");
+      return;
+    }
+    if (form.password.length < 6) {
+      setError("Password must be at least 6 characters.");
+      return;
+    }
+    if (form.password !== form.confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await registerWithEmailPassword(form.email, form.password);
+      setSuccess(true);
+    } catch (err) {
+      console.error("Registration error:", err);
+      const errorMessages = {
+        "auth/email-already-in-use": "This email is already registered. Please log in.",
+        "auth/invalid-email": "Invalid email address.",
+        "auth/weak-password": "Password is too weak. Use at least 6 characters.",
+        "auth/network-request-failed": "Network error. Check your connection.",
+      };
+      setError(errorMessages[err.code] || err.message || "Registration failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // ── Success state ────────────────────────────────────────────────────
   if (success) {
     return (
@@ -124,7 +155,7 @@ export default function RegisterPage() {
         </div>
 
         {/* Form */}
-        <form  className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-5">
           {/* Error alert */}
           {error && (
             <div className="flex items-start gap-2 text-sm text-red-600 bg-red-50 border border-red-200 px-4 py-3">

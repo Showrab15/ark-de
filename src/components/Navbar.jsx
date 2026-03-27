@@ -4,6 +4,9 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { Button } from "./ui/button";
+import { useAuth } from "@/contexts/AuthContext";
+import { useRouter } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "HOME", href: "/" },
@@ -14,13 +17,22 @@ export default function Navbar({onNotifyClick}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { user, appUser, loading, logout, isAuthenticated, isAdmin } = useAuth();
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
+ const handleLogout = async () => {
+    try {
+      await logout();
+      router.push("/admin/login");
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  };
   return (
     <header
       className={` transition-all duration-300 ${
@@ -62,9 +74,12 @@ export default function Navbar({onNotifyClick}) {
             );
           })}
 
-           {/* <Button variant="outline" size="sm" onClick={onNotifyClick}>
-            Notify Me
-          </Button> */}
+           <Button 
+                         onClick={handleLogout}
+
+           variant="outline" size="sm" >
+           Logout
+          </Button>
         </nav>
 
         {/* Mobile hamburger */}
