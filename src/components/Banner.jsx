@@ -1,122 +1,74 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
 
-const banners = [
-  {
-    id: 1,
-    image: '/banner1.jpg',
-    title: 'New Spring Collection',
-    subtitle: 'Up to 30% Off'
-  },
-  {
-    id: 2,
-    image: 'banner4.png',
-    title: 'Premium Denim',
-    subtitle: 'Limited Time Offer'
-  },
-  {
-    id: 3,
-    image: 'banner5.png',
-    title: 'Summer Essentials',
-    subtitle: 'Free Shipping Available'
-  },
-  {
-    id: 4,
-    image: 'banner6.png',
-    title: 'Summer Essentials',
-    subtitle: 'Free Shipping Available'
-  },
-  {
-    id: 5,
-    image: 'banner7.png',
-    title: 'Summer Essentials',
-    subtitle: 'Free Shipping Available'
-  }
-];
-
-export default function BannerSlider() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    if (isHovered) return;
-
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % banners.length);
-    }, 5000); // Auto-advance every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [isHovered]);
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
-
-  const goToPrevious = () => {
-    setCurrentSlide((prev) => (prev - 1 + banners.length) % banners.length);
-  };
-
-  const goToNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % banners.length);
-  };
-
+export default function Banner() {
   return (
-    <div
-      className="relative w-full h-48 md:h-64 lg:h-96 overflow-hidden bg-gray-100"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Slides */}
-      <div
-        className="flex h-full transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-      >
-        {banners.map((banner) => (
-          <div
-            key={banner.id}
-            className="min-w-full h-full relative"
-          >
-            <img
-              src={banner.image}
-              alt={banner.title}
-              className="w-full h-full object-center"
-            />
-           
+    <section className="relative overflow-hidden bg-black text-white">
+      <div className="absolute inset-0 opacity-70 bg-gradient-to-br from-black via-transparent to-[#831113]" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="space-y-8">
+            <p className="inline-block rounded-full bg-white/10 px-4 py-2 text-sm uppercase tracking-[0.35em] text-white/80">
+              New arrival
+            </p>
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
+                Modern menswear made for the few who move with confidence.
+              </h1>
+              <p className="max-w-xl text-base sm:text-lg text-gray-200 leading-relaxed">
+                Discover Arkade's premium essentials, thoughtfully crafted for everyday refinement.
+                Shop tailored fits, luxury fabrics, and statement staples built to last.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <Link
+                href="/products/1"
+                className="inline-flex items-center justify-center rounded-full bg-[#831113] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#9a1f1f]"
+              >
+                Shop Moonlight Noir
+              </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+              >
+                Learn More
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+              <div className="rounded-3xl bg-white/5 p-4 text-center">
+                <p className="text-2xl font-semibold">Premium Fabric</p>
+                <p className="mt-2 text-sm text-gray-300">Soft, durable, and breathable.</p>
+              </div>
+              <div className="rounded-3xl bg-white/5 p-4 text-center">
+                <p className="text-2xl font-semibold">Limited Drops</p>
+                <p className="mt-2 text-sm text-gray-300">Exclusive designs, ready now.</p>
+              </div>
+              <div className="rounded-3xl bg-white/5 p-4 text-center">
+                <p className="text-2xl font-semibold">Free Shipping</p>
+                <p className="mt-2 text-sm text-gray-300">On orders over $100.</p>
+              </div>
+            </div>
           </div>
-        ))}
-      </div>
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={goToPrevious}
-        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/30 bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 transition-all"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
-      </button>
-      <button
-        onClick={goToNext}
-        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/30 bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 transition-all"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
-      </button>
-
-      {/* Dots Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-        {banners.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === currentSlide ? 'bg-white w-6' : 'bg-white bg-opacity-50'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+          <div className="relative">
+            <div className="pointer-events-none absolute inset-0 rounded-[2rem] bg-white/5 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl shadow-black/20">
+              <Image
+                src="/banner1.jpg"
+                alt="Arkade fashion collection"
+                width={960}
+                height={800}
+                className="h-full w-full object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
