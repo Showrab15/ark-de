@@ -47,7 +47,7 @@ export default function AdminLoginPage() {
       <div className="max-w-md w-full space-y-8 p-8">
         <div className="text-center">
           <h1 className="text-3xl font-light text-black mb-2">Admin Login</h1>
-          <p className="text-zinc-600">Sign in to access the admin panel</p>
+          <p className="text-zinc-600">Sign in nto access the admin panel</p>
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-sm border border-zinc-200">
