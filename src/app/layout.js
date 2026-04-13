@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat, Noto_Serif_Bengali, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from './../components/Footer';
@@ -13,6 +13,24 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-playfair'
+});
+
+const notoBengali = Noto_Serif_Bengali({
+  subsets: ['bengali'],
+  weight: ['400', '500', '600'],
+  variable: '--font-bengali'
+});
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-montserrat'
 });
 
 export const metadata = {
@@ -79,7 +97,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${notoBengali.variable} ${montserrat.variable} antialiased`}>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} strategy="afterInteractive"
         />
@@ -93,11 +111,11 @@ export default function RootLayout({ children }) {
       `}
         </Script>
 
-        <AuthProvider>
-          <Navbar />
+        {/* <AuthProvider> */}
+          {/* <Navbar /> */}
           <main>{children}</main>
-          <Footer />
-        </AuthProvider>
+          {/* <Footer /> */}
+        {/* </AuthProvider> */}
       </body>
     </html>
   );

@@ -117,6 +117,14 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+
+.font-en {
+  font-family: var(--font-playfair), serif;
+}
+
+.font-bn {
+  font-family: var(--font-bengali), serif;
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
