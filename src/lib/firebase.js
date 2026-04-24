@@ -3,12 +3,12 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
- apiKey: "AIzaSyCAjwzJaepdz3nc_uwQ1gUh7DyQJlEVsNA",
-  authDomain: "arkade-9a528.firebaseapp.com",
-  projectId: "arkade-9a528",
-  storageBucket: "arkade-9a528.firebasestorage.app",
-  messagingSenderId: "847360584705",
-  appId: "1:847360584705:web:67bb10a1ff18eb78df6400"
+  apiKey: "AIzaSyCfiOL5l1N1Ozn5IkhAl5oBC6mg7qEZMfQ",
+  authDomain: "arcade-e8b7c.firebaseapp.com",
+  projectId: "arcade-e8b7c",
+  storageBucket: "arcade-e8b7c.firebasestorage.app",
+  messagingSenderId: "230491133244",
+  appId: "1:230491133244:web:af1206e60bbbf707ca3a39"
 };
 
 // Initialize Firebase
