@@ -111,11 +111,11 @@ export default function RootLayout({ children }) {
       `}
         </Script>
 
-        {/* <AuthProvider> */}
-          {/* <Navbar /> */}
+        <AuthProvider>
+          <Navbar />
           <main>{children}</main>
-          {/* <Footer /> */}
-        {/* </AuthProvider> */}
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
